@@ -68,13 +68,21 @@ function objectFilter(obj, callback) {
     return Object.entries(obj).filter((item) => item[1] === callback(item[0]))
 }
 
+// ===
+// ===
+// ===
 // === execution ===
+// ===
+// ===
+// ===
 
-// Exercise 8
-console.log(setArrays([1,2,3], [3,4,5,6,6], [1,2,3,6,6,7,7,7,8,9,9,9]))
+// Exercise 8 <-
+console.log("Exercise 8", setArrays([1,2,3], [3,4,5,6,6], [1,2,3,6,6,7,7,7,8,9,9,9]))
+console.log('=====')
 
-// Exercise 9
+// Exercise 9 <-
 console.log(
+    "Exercise 9",
     objOfMatches(
         ["hi", "bye", "later", "hello"], // hello dont match after uppercasing
         ["HI", "BYE", "LATER", "hello"],
@@ -83,9 +91,11 @@ console.log(
         }
     )
 )
+console.log('=====')
 
-// Exercise 10
+// Exercise 10 <-
 console.log(
+    "Exercise 10",
     multiMap(
         ["catfood", "glue", "beer"],
         [
@@ -101,12 +111,15 @@ console.log(
         ]
     )
 )
+console.log('=====')
 
-// Exercise 11
+// Exercise 11 <-
 console.log(
+    "Exercise 11",
     objectFilter({
         London: "LONDON",
         LA: "Los Angeles",
         Paris: "PARIS",
     }, (city) => city.toUpperCase())
 );
+console.log('=====')

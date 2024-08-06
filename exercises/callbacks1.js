@@ -84,36 +84,38 @@ function intersection(...arrays) {
     }, [])
 }
 
-
-
+// ===
+// ===
+// ===
 // === execution ===
+// ===
+// ===
+// ===
 
-// Exercise 1
+// Exercise 1 <-
 console.log('Exercise 1', addTwo(5))
 console.log('=====')
 
-// Exercise 2
+// Exercise 2 <-
 console.log('Exercise 2', addS('cat'))
 console.log('=====')
 
-// Exercise 3
+// Exercise 3 <-
 console.log('Exercise 3', customMap(testArray, (item) => item * 2))
 console.log('=====')
 
-// Exercise 4
+// Exercise 4 <-
 console.log('Exercise 4', customForEach(testArray, (item) => item * 2))
 console.log('=====')
 
-// Exercise 5
+// Exercise 5 <-
 console.log('Exercise 5', mapWith(testArray, (item) => item * 2))
 console.log('=====')
 
-// Exercise 6
+// Exercise 6 <-
 console.log('Exercise 6', customReduce(testArray, (item1, item2) => item1 + item2, 0))
 console.log('=====')
 
-// Exercise 6
+// Exercise 7 <-
 console.log('Exercise 7', intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]))
 console.log('=====')
-
-
