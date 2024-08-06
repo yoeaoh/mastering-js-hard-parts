@@ -47,6 +47,16 @@ function objOfMatches(arrayOne, arrayTwo, callback) {
 // assigned to the keys will be arrays consisting of outputs from the array of 
 // callbacks, where the input to each callback is the key.
 
+function multiMap(valuesArray, callbacksArray) {
+    return valuesArray.reduce((acc, currentValue) => {
+        const newAcc = acc
+
+        newAcc[currentValue] = callbacksArray.map(callbackItem => callbackItem(currentValue))
+
+        return newAcc
+    }, {})
+}
+
 // -> Exercise 11
 // Construct a function objectFilter that accepts an object as the first 
 // parameter and a callback function as the second parameter. objectFilter will 
@@ -54,7 +64,9 @@ function objOfMatches(arrayOne, arrayTwo, callback) {
 // the input object such that the property's value is equal to the property's 
 // key passed into the callback.
 
-
+function objectFilter(obj, callback) {
+    return Object.entries(obj).filter((item) => item[1] === callback(item[0]))
+}
 
 // === execution ===
 
@@ -64,10 +76,37 @@ console.log(setArrays([1,2,3], [3,4,5,6,6], [1,2,3,6,6,7,7,7,8,9,9,9]))
 // Exercise 9
 console.log(
     objOfMatches(
-      ["hi", "bye", "later", "hello"], // hello dont match after uppercasing
-      ["HI", "BYE", "LATER", "hello"],
-      function (str) {
-        return str.toUpperCase();
-      }
+        ["hi", "bye", "later", "hello"], // hello dont match after uppercasing
+        ["HI", "BYE", "LATER", "hello"],
+        function (str) {
+                return str.toUpperCase();
+        }
     )
+)
+
+// Exercise 10
+console.log(
+    multiMap(
+        ["catfood", "glue", "beer"],
+        [
+            function (str) {
+                return str.toUpperCase()
+            },
+            function (str) {
+                return str[0].toUpperCase() + str.slice(1).toLowerCase()
+            },
+            function (str) {
+                return str + str
+            },
+        ]
+    )
+)
+
+// Exercise 11
+console.log(
+    objectFilter({
+        London: "LONDON",
+        LA: "Los Angeles",
+        Paris: "PARIS",
+    }, (city) => city.toUpperCase())
 );
