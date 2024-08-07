@@ -19,6 +19,13 @@ function setArrays(...arrays) {
     }, [])
 }
 
+// Exercise 8 execution <-
+console.log(
+    "Exercise 8", 
+    setArrays([1,2,3], [3,4,5,6,6], [1,2,3,6,6,7,7,7,8,9,9,9])
+)
+console.log('=====')
+
 // -> Exercise 9
 // Construct a function objOfMatches that accepts two arrays and a callback. 
 // objOfMatches will build an object and return it. To build the object, 
@@ -40,6 +47,19 @@ function objOfMatches(arrayOne, arrayTwo, callback) {
     return resultObject
 }
 
+// Exercise 9 execution <-
+console.log(
+    "Exercise 9",
+    objOfMatches(
+        ["hi", "bye", "later", "hello"], // hello dont match after uppercasing
+        ["HI", "BYE", "LATER", "hello"],
+        function (str) {
+                return str.toUpperCase();
+        }
+    )
+)
+console.log('=====')
+
 // -> Exercise 10
 // Construct a function multiMap that will accept two arrays: an array of 
 // values and an array of callbacks. multiMap will return an object whose keys 
@@ -57,43 +77,7 @@ function multiMap(valuesArray, callbacksArray) {
     }, {})
 }
 
-// -> Exercise 11
-// Construct a function objectFilter that accepts an object as the first 
-// parameter and a callback function as the second parameter. objectFilter will 
-// return a new object. The new object will contain only the properties from 
-// the input object such that the property's value is equal to the property's 
-// key passed into the callback.
-
-function objectFilter(obj, callback) {
-    return Object.entries(obj).filter((item) => item[1] === callback(item[0]))
-}
-
-// ===
-// ===
-// ===
-// === execution ===
-// ===
-// ===
-// ===
-
-// Exercise 8 <-
-console.log("Exercise 8", setArrays([1,2,3], [3,4,5,6,6], [1,2,3,6,6,7,7,7,8,9,9,9]))
-console.log('=====')
-
-// Exercise 9 <-
-console.log(
-    "Exercise 9",
-    objOfMatches(
-        ["hi", "bye", "later", "hello"], // hello dont match after uppercasing
-        ["HI", "BYE", "LATER", "hello"],
-        function (str) {
-                return str.toUpperCase();
-        }
-    )
-)
-console.log('=====')
-
-// Exercise 10 <-
+// Exercise 10 execution <-
 console.log(
     "Exercise 10",
     multiMap(
@@ -113,7 +97,18 @@ console.log(
 )
 console.log('=====')
 
-// Exercise 11 <-
+// -> Exercise 11
+// Construct a function objectFilter that accepts an object as the first 
+// parameter and a callback function as the second parameter. objectFilter will 
+// return a new object. The new object will contain only the properties from 
+// the input object such that the property's value is equal to the property's 
+// key passed into the callback.
+
+function objectFilter(obj, callback) {
+    return Object.entries(obj).filter((item) => item[1] === callback(item[0]))
+}
+
+// Exercise 11 execution <-
 console.log(
     "Exercise 11",
     objectFilter({
