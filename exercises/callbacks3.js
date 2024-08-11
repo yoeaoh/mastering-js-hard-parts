@@ -64,6 +64,7 @@ console.log(
         startsWithS
     )
 )
+console.log('=====');
 
 // -> Exercice 14
 // Create a function countBy that accepts an array and a callback, 
@@ -73,7 +74,21 @@ console.log(
 // with each key will be the number of times that particular return 
 // value was returned.
 
-function countBy() {}
+function countBy(array, callback) {
+    return array.reduce((acc, currentItem) => {
+        const newObject = acc
+
+        const calculatedValue = callback(currentItem)
+
+        if (newObject[calculatedValue]) {
+            newObject[calculatedValue] += 1
+            return newObject
+        }
+
+        newObject[calculatedValue] = 1
+        return newObject
+    }, {})
+}
 
 // Exercise 14 execution <-
 console.log(
@@ -83,6 +98,7 @@ console.log(
         else return "odd";
     })
 );
+console.log('=====');
 
 // -> Exercise 15
 // Create a function groupBy that accepts an array and a callback, and 
@@ -92,7 +108,21 @@ console.log(
 // will be an array consisting of all the elements that resulted in that 
 // return value when passed into the callback.
 
-function groupBy() {}
+function groupBy(array, callback) {
+    return array.reduce((acc, currentItem) => {
+        const newObject = acc
+
+        const calculatedValue = callback(currentItem)
+
+        if (newObject[calculatedValue]) {
+            newObject[calculatedValue].push(currentItem)
+            return newObject
+        }
+
+        newObject[calculatedValue] = [currentItem]
+        return newObject
+    }, {})
+}
 
 
 // Exercise 15 execution <-
@@ -101,6 +131,7 @@ const floored = function (num) {
     return Math.floor(num)
 }
 console.log("Exercise 15", groupBy(decimals, floored))
+console.log('=====');
 
 // -> Exercise 16
 // Create a function goodKeys that accepts an object and a callback. 
@@ -109,7 +140,19 @@ console.log("Exercise 15", groupBy(decimals, floored))
 // then return an array consisting only the keys whose associated values 
 // yielded a true return value from the callback.
 
-function goodKeys() {}
+function goodKeys(obj, callback) {
+    return Object.entries(obj).reduce((acc, currentItem) => {
+        const newArray = acc;
+
+        const calculatedValue = callback(currentItem[1])
+
+        if (calculatedValue) {
+            newArray.push(currentItem[0])
+        }
+
+        return newArray
+    }, [])
+}
 
 // Exercise 16 execution <-
 const sunny = {
@@ -123,3 +166,4 @@ const startsWithBird = function (str) {
     return str.slice(0, 4).toLowerCase() === "bird"
 }
 console.log("Exercise 16", goodKeys(sunny, startsWithBird))
+console.log('=====');
