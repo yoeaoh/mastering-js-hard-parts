@@ -1,3 +1,4 @@
+// ===
 // -> Exercise 12
 // Create a function majority that accepts an array and a callback. 
 // The callback will return either true or false. majority will iterate 
@@ -6,30 +7,23 @@
 // callback are true. If the number of true returns is equal to the 
 // number of false returns, majority should return false.
 
-function majority(array, callback) {
-    const inputArrayLength = array.length
-    const arrayOfPositives = [];
+function majority() {}
 
-    array.forEach((item) => {
-        if (callback(item)) {
-            arrayOfPositives.push(item)
-        }
-    })
-
-    if ((inputArrayLength / 2) >= arrayOfPositives.length) return false
-    
-    return true
-}
-
-// -> Exercise 12 execution
+// ===
+// --> Exercise 12 execution
 const isOdd = function (num) {
     return num % 2 === 1
 }
 console.log(
     "Exercise 12", 
     majority([1, 2, 3, 4, 5, 7, 9, 11], isOdd)
+    // should output true
 )
 console.log('=====');
+
+// ===
+// ===
+// ===
 
 // -> Exercise 13
 // Create a function prioritize that accepts an array and a callback. 
@@ -39,19 +33,7 @@ console.log('=====');
 // value of true come first in the array, and the rest of the elements 
 // come second.
 
-function prioritize(array, callback) {
-    return array.reduce((acc, currentItem) => {
-        const newArray = acc;
-        
-        if (callback(currentItem)) {
-            newArray.unshift(currentItem)
-            return newArray
-        }
-
-        newArray.push(currentItem)
-        return newArray
-    }, [])
-}
+function prioritize() {}
 
 // Exercise 13 execution <-
 const startsWithS = function (str) {
@@ -63,6 +45,7 @@ console.log(
         ["curb", "rickandmorty", "seinfeld", "sunny", "friends"],
         startsWithS
     )
+    // should output [ 'sunny', 'seinfeld', 'curb', 'rickandmorty', 'friends' ]
 )
 console.log('=====');
 
@@ -74,21 +57,7 @@ console.log('=====');
 // with each key will be the number of times that particular return 
 // value was returned.
 
-function countBy(array, callback) {
-    return array.reduce((acc, currentItem) => {
-        const newObject = acc
-
-        const calculatedValue = callback(currentItem)
-
-        if (newObject[calculatedValue]) {
-            newObject[calculatedValue] += 1
-            return newObject
-        }
-
-        newObject[calculatedValue] = 1
-        return newObject
-    }, {})
-}
+function countBy() {}
 
 // Exercise 14 execution <-
 console.log(
@@ -97,6 +66,7 @@ console.log(
         if (num % 2 === 0) return "even";
         else return "odd";
     })
+    // should output { odd: 3, even: 2 }
 );
 console.log('=====');
 
@@ -108,22 +78,7 @@ console.log('=====');
 // will be an array consisting of all the elements that resulted in that 
 // return value when passed into the callback.
 
-function groupBy(array, callback) {
-    return array.reduce((acc, currentItem) => {
-        const newObject = acc
-
-        const calculatedValue = callback(currentItem)
-
-        if (newObject[calculatedValue]) {
-            newObject[calculatedValue].push(currentItem)
-            return newObject
-        }
-
-        newObject[calculatedValue] = [currentItem]
-        return newObject
-    }, {})
-}
-
+function groupBy() {}
 
 // Exercise 15 execution <-
 const decimals = [1.3, 2.1, 2.4];
@@ -133,6 +88,7 @@ const floored = function (num) {
 console.log(
     "Exercise 15", 
     groupBy(decimals, floored)
+    // should output { '1': [ 1.3 ], '2': [ 2.1, 2.4 ] }
 )
 console.log('=====');
 
@@ -143,19 +99,7 @@ console.log('=====');
 // then return an array consisting only the keys whose associated values 
 // yielded a true return value from the callback.
 
-function goodKeys(obj, callback) {
-    return Object.entries(obj).reduce((acc, currentItem) => {
-        const newArray = acc;
-
-        const calculatedValue = callback(currentItem[1])
-
-        if (calculatedValue) {
-            newArray.push(currentItem[0])
-        }
-
-        return newArray
-    }, [])
-}
+function goodKeys() {}
 
 // Exercise 16 execution <-
 const sunny = {
@@ -171,5 +115,6 @@ const startsWithBird = function (str) {
 console.log(
     "Exercise 16", 
     goodKeys(sunny, startsWithBird)
+    // should output [ 'charlie', 'dee' ]
 )
 console.log('=====');
