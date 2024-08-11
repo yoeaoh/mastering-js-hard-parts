@@ -4,7 +4,9 @@
 // a function. When that created function is called, it should 
 // print "hello".
 
-function createFunction() {}
+function createFunction() {
+    return () => console.log('hello')
+}
 
 // ===
 // => Exercise 1 execution
